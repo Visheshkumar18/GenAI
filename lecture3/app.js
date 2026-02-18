@@ -1,20 +1,26 @@
 import {GoogleGenAI} from '@google/genai';
 import 'dotenv/config'
+import readlineSync from 'readline-sync'
 const ai=new GoogleGenAI({});
 async function main(){
-    const response=await ai.models.generateContent({
-        model:"gemini-3-flash-preview",
-        contents:[
-            {
-                role:"user",
-                parts:[{text:"what is system design in short "}]
-            },
-            {
-                role:"model",
-                parts:[{text:"Think of it as the **blueprint** for building an application"}]
-            }
-        ]
-    })
-    console.log(response.text);
+  const chat=ai.chats.create({
+    model:"gemini-2.5-flash",
+    history:[],
+    config:{
+        systemInstruction:`you are a coding tutor,
+        strict rule to follow
+        - you will only answer which is related to coding
+        -don't answer anything which is not related to coding
+        `
+    }
+  }) ;
+  while(true){
+    const question=readlineSync.question("Ask me Question :");
+    if(question=='exit')break;
+    const response=await chat.sendMessage({
+        message:question
+    });
+    console.log("Response",response.text);
+  }
 }
 await main();
