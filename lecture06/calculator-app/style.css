@@ -1,0 +1,14 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }  
+body { display: flex; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(135deg, #1e1e2f, #2a2a40); }  
+.calculator { background-color: #22252d; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); width: 320px; overflow: hidden; }  
+.display { background-color: #292d36; padding: 20px; text-align: right; word-break: break-all; word-wrap: break-word; min-height: 100px; display: flex; flex-direction: column; justify-content: space-between; }  
+.previous-operand { color: #818e9f; font-size: 1.2rem; min-height: 1.5rem; }  
+.current-operand { color: #ffffff; font-size: 2.2rem; font-weight: bold; }  
+.buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background-color: #22252d; padding: 1px; }  
+.btn { border: none; outline: none; padding: 20px; font-size: 1.2rem; cursor: pointer; background-color: #272b33; color: #fff; transition: background-color 0.2s; }  
+.btn:hover { background-color: #323741; }  
+.btn:active { background-color: #3d434f; }  
+.span-two { grid-column: span 2; }  
+.operator { background-color: #262833; color: #2692ff; font-weight: bold; }  
+.action { color: #ff5757; }  
+.equals { background-color: #2692ff; color: white; }  
